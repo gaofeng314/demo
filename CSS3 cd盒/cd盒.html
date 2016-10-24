@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			background: url(bg.jpg) no-repeat;
+			background-size: 100%;
+		}
+		ul{
+			width:1150px;
+			height:200px;
+			margin: 300px 0 0 100px;
+		}
+		li{
+			list-style: none;
+			position: relative;
+			width:200px;
+			height:200px;
+			float:left;
+			margin-right:30px;
+			-webkit-transform:perspective(800px) rotateX(0deg) rotateX(0deg);
+			-webkit-transform-style:preserve-3d;
+		}
+		li div{
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		.per{
+			-webkit-transform:translateZ(1px);
+		}
+		.cd{
+			-webkit-transform:translateZ(-1px) rotate(0deg);
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var aLi = document.querySelectorAll('li');
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].onmouseover = function(){
+					var oPer = this.children[0];
+					var oCd = this.children[1];
+					oPer.style.WebkitTransition='0.5s all ease';
+					oCd.style.WebkitTransition='0.5s all ease';
+					oPer.style.top = '35px';
+					oCd.style.top = '-35px';
+					oCd.style.WebkitTransform = 'rotate(180deg)';
+				};
+				aLi[i].onmouseout = function(){
+					var oPer = this.children[0];
+					var oCd = this.children[1];
+					oPer.style.WebkitTransition='0.5s all ease';
+					oCd.style.WebkitTransition='0.5s all ease';
+					oPer.style.top = '0px';
+					oCd.style.top = '0px';
+					oCd.style.WebkitTransform = 'rotate(0deg)';
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<ul>
+		<li>
+			<div class="per"><img src="img_01.jpg" alt=""></div>
+			<div class="cd"><img src="cd.png" alt=""></div>
+		</li>
+		<li>
+			<div class="per"><img src="img_01.jpg" alt=""></div>
+			<div class="cd"><img src="cd.png" alt=""></div>
+		</li>
+		<li>
+			<div class="per"><img src="img_01.jpg" alt=""></div>
+			<div class="cd"><img src="cd.png" alt=""></div>
+		</li>
+		<li>
+			<div class="per"><img src="img_01.jpg" alt=""></div>
+			<div class="cd"><img src="cd.png" alt=""></div>
+		</li>
+		<li>
+			<div class="per"><img src="img_01.jpg" alt=""></div>
+			<div class="cd"><img src="cd.png" alt=""></div>
+		</li>
+	</ul>
+</body>
+</html>

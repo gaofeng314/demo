@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			background: pink;
+		}
+		p{
+			font-size: 50px;
+			position: absolute;
+			left:50px;
+			top:100px;
+			font-weight: bold;
+			width: 600px;
+			/* background: -webkit-linear-gradient(45deg,green,yellow,red,orange); */
+			/* -webkit-background-clip:text; */
+			color: rgba(0,0,0,.1);
+		}
+		span{
+			font-size: 50px;
+			position: absolute;
+			left:50px;
+			top:100px;
+			font-weight: bold;
+			width: 600px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oP = document.querySelector('p');
+			var oS = document.querySelector('span');
+			var N=0;
+			setInterval(function(){
+				N++;
+				oP.style.background = '-webkit-linear-gradient(-45deg,#000 '+N+'%,#fff '+N+'%,#fff '+(N+5)+'%,#000 '+(N+5)+'%)';
+				oP.style.WebkitBackgroundClip = 'text';
+				if(N==90)N=0;
+			},50);
+		};
+	</script>
+</head>
+<body>
+	<p>滑动解锁,解不开就扔了吧</p>
+	<!-- <span>滑动解锁,解不开就扔了吧</span> -->
+</body>
+</html>
